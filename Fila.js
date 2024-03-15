@@ -41,6 +41,11 @@ class Fila{
         return this.elementos[this.fim];
     }
     //--------------------
-    
+    toString(){
+        let elementosFila = "";
+        // percorrer o vetor de elementos
+        // concatenar dados na string
+        // retornar elementosFila
+    }
 
 }
