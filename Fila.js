@@ -18,7 +18,29 @@ class Fila{
             console.log("Index of ini e fim:"+this.inicio+" "+this.fim+ " Qtd:"+ this.qtd);
             return true;
         }
+        return false;
+    }// fim enqueue
+//--------------------
+    dequeue(){
+        let elemento = this.elementos[this.inicio];
+        this.inicio++;
+        this.qtd;
+        console.log("Index of ini e fim:"+this.inicio+" "+this.fim+ " Qtd:"+ this.qtd);
+        return elemento;
     }
-
+    //--------------------
+    isEmpty(){
+        return this.qtd===0;
+    }
+    //-------------------
+    first(){
+        return this.elementos[this.inicio];
+    }
+    //-------------------
+    last(){
+        return this.elementos[this.fim];
+    }
+    //--------------------
+    
 
 }
