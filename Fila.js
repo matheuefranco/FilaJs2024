@@ -43,9 +43,10 @@ class Fila{
     //--------------------
     toString(){
         let elementosFila = "";
-        // percorrer o vetor de elementos
-        // concatenar dados na string
-        // retornar elementosFila
+        for(let i=this.inicio;i<this.fim;i++)
+            elementosFila+=this.elementos[i]+" |";
+        return elementosFila;
     }
+    
 
 }
