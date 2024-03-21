@@ -7,11 +7,11 @@ class Fila{
     }// fim construtor
 //-------------------------------   
     get isFull(){
-        return this.fim == this.elementos.length-1;
+        return this.fim === this.elementos.length-1;
     }
 //-------------------------------
     enqueue(elemento){
-        if(!this.isFull){
+        if(!(this.fim === this.elementos.length-1)){
             this.fim++;
             this.elementos[this.fim] = elemento;
             this.qtd++;
@@ -24,7 +24,7 @@ class Fila{
     dequeue(){
         let elemento = this.elementos[this.inicio];
         this.inicio++;
-        this.qtd;
+        this.qtd--;
         console.log("Index of ini e fim:"+this.inicio+" "+this.fim+ " Qtd:"+ this.qtd);
         return elemento;
     }
@@ -43,10 +43,8 @@ class Fila{
     //--------------------
     toString(){
         let elementosFila = "";
-        for(let i=this.inicio;i<this.fim;i++)
+        for(let i=this.inicio;i<=this.fim;i++)
             elementosFila+=this.elementos[i]+" |";
         return elementosFila;
     }
-    
-
 }
