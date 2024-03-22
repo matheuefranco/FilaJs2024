@@ -1,4 +1,4 @@
-class Fila{
+class FilaCircular{
     constructor(tamanho){
         this.inicio=0;
         this.fim= -1;
@@ -7,12 +7,15 @@ class Fila{
     }// fim construtor
 //-------------------------------   
    isFull(){
-        return this.fim === this.elementos.length-1;
+        return this.qtd === this.elementos.length;
 }
 //-------------------------------
     enqueue(elemento){
         if(!this.isFull()){
-            this.fim++;
+            if(this.fim === this.elementos.length-1)
+                this.fim=0;
+            else
+                this.fim++;
             this.elementos[this.fim] = elemento;
             this.qtd++;
             console.log("Index of ini e fim:"+this.inicio+" "+this.fim+ " Qtd:"+ this.qtd);
@@ -23,7 +26,10 @@ class Fila{
 //--------------------
     dequeue(){
         let elemento = this.elementos[this.inicio];
-        this.inicio++;
+        if(this.inicio === this.elementos.length-1)
+            this.inicio=0;
+        else
+            this.inicio++;
         this.qtd--;
         console.log("Index of ini e fim:"+this.inicio+" "+this.fim+ " Qtd:"+ this.qtd);
         return elemento;
@@ -43,8 +49,14 @@ class Fila{
     //--------------------
     toString(){
         let elementosFila = "";
-        for(let i=this.inicio;i<=this.fim;i++)
+        let i = this.inicio;
+        for(let cont=0;cont<this.qtd;cont++){
             elementosFila+=this.elementos[i]+" |";
+            if(i===this.elementos.length-1)
+                i=0;
+            else
+                i++;
+        }    
         return elementosFila;
     }
 }
